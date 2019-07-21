@@ -9,6 +9,8 @@ const rock_div = document.querySelector("#rock");
 const paper_div = document.querySelector("#paper");
 const scissor_div = document.querySelector("#scissor");
 
+//This randomizes the computer (goro's) selection
+
 function getGoroSelection() {
   const selection = ["rock", "paper", "scissor"];
   const randNum = Math.floor(Math.random() * 3);
@@ -16,12 +18,24 @@ function getGoroSelection() {
 }
 getGoroSelection();
 
+//Play the SFX
+
+function subPlay() {
+  let audio = new Audio("./sfx/subzero.wav");
+  audio.play();
+}
+
+//When player(subzero) wins
+
 function win() {
   subZeroScore++;
+  subPlay();
   subZeroScore_span.innerHTML = subZeroScore;
   goroScore_span.innerHTML = goroScore;
   outcome_p.innerHTML = "Subzero wins";
 }
+
+//when player (subzero) loses
 
 function lose() {
   goroScore++;
@@ -30,9 +44,13 @@ function lose() {
   outcome_p.innerHTML = "Goro wins";
 }
 
+//In the event of a tie
+
 function friendship() {
   outcome_p.innerHTML = "Friendship. Friendship.";
 }
+
+//the players selection + goro selection + outcome logic
 
 function game(subZeroSelection) {
   const goroSelection = getGoroSelection();
@@ -56,6 +74,8 @@ function game(subZeroSelection) {
 }
 
 game();
+
+//player selection event listeners
 
 function main() {
   rock_div.addEventListener("click", function() {
