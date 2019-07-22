@@ -35,6 +35,11 @@ function goroPlay() {
   audio.play();
 }
 
+function friendPlay() {
+  let audio = new Audio("./sfx/friendship.mp3");
+  audio.play();
+}
+
 //When player(subzero) wins
 
 function win() {
@@ -58,7 +63,7 @@ function lose() {
 //In the event of a tie
 
 function friendship() {
-  introPlay();
+  friendPlay();
   outcome_p.innerHTML = "Friendship. Friendship.";
 }
 
