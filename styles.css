@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+/* #sfx {
+  display: none;
+} */
+
 body {
   background-color: #7b7b7b;
 }

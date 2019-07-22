@@ -20,8 +20,18 @@ getGoroSelection();
 
 //Play the SFX
 
+function introPlay() {
+  let audio = new Audio("./sfx/fight.wav");
+  audio.play();
+}
+
 function subPlay() {
   let audio = new Audio("./sfx/subzero.wav");
+  audio.play();
+}
+
+function goroPlay() {
+  let audio = new Audio("./sfx/goro.wav");
   audio.play();
 }
 
@@ -39,6 +49,7 @@ function win() {
 
 function lose() {
   goroScore++;
+  goroPlay();
   subZeroScore_span.innerHTML = subZeroScore;
   goroScore_span.innerHTML = goroScore;
   outcome_p.innerHTML = "Goro wins";
@@ -47,6 +58,7 @@ function lose() {
 //In the event of a tie
 
 function friendship() {
+  introPlay();
   outcome_p.innerHTML = "Friendship. Friendship.";
 }
 
