@@ -20,6 +20,7 @@ header > h1 {
     "Lucida Sans", Arial, sans-serif;
 }
 
+
 .scores {
   margin: 40px auto;
   border: 10px solid white;
@@ -33,6 +34,14 @@ header > h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   position: relative;
+}
+
+.score-description {
+  color: white;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+    font-size: 24px;
 }
 
 .icon {

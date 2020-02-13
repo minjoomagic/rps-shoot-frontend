@@ -52,7 +52,7 @@ function friendPlay() {
 function addSubZeroInner(subZeroSelection, goroSelection) {
   subZeroScore_span.innerHTML = subZeroScore;
   goroScore_span.innerHTML = goroScore;
-  outcome_p.innerHTML = "Subzero wins";
+  goroScore_span.innerHTML === "0" ? outcome_p.innerHTML = "Flawless Victory" : outcome_p.innerHTML = "Subzero wins";;
   player_choice.innerHTML = subZeroSelection + " " + "defeats";
   computer_choice.innerHTML = goroSelection;
 }
