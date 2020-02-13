@@ -5,6 +5,9 @@ const goroScore_span = document.querySelector("#goro-score");
 
 const scores_div = document.querySelector(".scores");
 const outcome_p = document.querySelector(".outcome > p");
+const player_choice = document.querySelector(".player-choice");
+const computer_choice = document.querySelector(".computer-choice");
+
 const rock_div = document.querySelector("#rock");
 const paper_div = document.querySelector("#paper");
 const scissor_div = document.querySelector("#scissor");
@@ -16,7 +19,6 @@ function getGoroSelection() {
   const randNum = Math.floor(Math.random() * 3);
   return selection[randNum];
 }
-getGoroSelection();
 
 //Play the SFX
 
@@ -36,35 +38,43 @@ function goroPlay() {
 }
 
 function friendPlay() {
-  let audio = new Audio("./sfx/friendship.mp3");
+  let audio = new Audio("../sfx/friendship.mp3");
   audio.play();
 }
 
 //When player(subzero) wins
 
-function win() {
+function win(subZeroSelection, goroSelection) {
   subZeroScore++;
   subPlay();
   subZeroScore_span.innerHTML = subZeroScore;
   goroScore_span.innerHTML = goroScore;
   outcome_p.innerHTML = "Subzero wins";
+  player_choice.innerHTML = subZeroSelection + " " + "defeats";
+  computer_choice.innerHTML = goroSelection;
+
 }
 
 //when player (subzero) loses
 
-function lose() {
+function lose(subZeroSelection, goroSelection) {
   goroScore++;
   goroPlay();
   subZeroScore_span.innerHTML = subZeroScore;
   goroScore_span.innerHTML = goroScore;
   outcome_p.innerHTML = "Goro wins";
+  player_choice.innerHTML = subZeroSelection + " " + "loses to";
+  computer_choice.innerHTML = goroSelection;
 }
 
 //In the event of a tie
 
 function friendship() {
   friendPlay();
-  outcome_p.innerHTML = "Friendship. Friendship.";
+  outcome_p.innerHTML = "Its a tie. Friendship.";
+  player_choice.innerHTML = "I want to be your friend.";
+  computer_choice.innerHTML = "";
+
 }
 
 //the players selection + goro selection + outcome logic
@@ -75,17 +85,17 @@ function game(subZeroSelection) {
     case "rockscissor":
     case "paperrock":
     case "scissorpaper":
-      win();
+      win(subZeroSelection, goroSelection);
       break;
     case "rockpaper":
     case "paperscissor":
     case "scissorrock":
-      lose();
+      lose(subZeroSelection, goroSelection);
       break;
     case "rockrock":
     case "paperpaper":
     case "scissorscissor":
-      friendship();
+      friendship(subZeroSelection, goroSelection);
       break;
   }
 }
@@ -95,17 +105,17 @@ game();
 //player selection event listeners
 
 function main() {
-  rock_div.addEventListener("click", function() {
+  rock_div.addEventListener("click", function () {
     console.log("you be clicking DW Johnson");
     game("rock");
   });
 
-  paper_div.addEventListener("click", function() {
+  paper_div.addEventListener("click", function () {
     console.log("you be clicking papel");
     game("paper");
   });
 
-  scissor_div.addEventListener("click", function() {
+  scissor_div.addEventListener("click", function () {
     console.log("you be clicking edward S.");
     game("scissor");
   });

@@ -4,12 +4,8 @@
   box-sizing: border-box;
 }
 
-/* #sfx {
-  display: none;
-} */
-
 body {
-  background-color: #7b7b7b;
+  background-color: #8d8d8e;
 }
 
 header {
@@ -87,13 +83,17 @@ header > h1 {
 
 .outcome {
   font-size: 40px;
-  color: white;
+  color: rgb(73, 191, 255);
 }
 
 .outcome > p {
   text-align: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+}
+
+.outcome span {
+  text-align: center
 }
 
 .selection {
@@ -136,6 +136,15 @@ header > h1 {
   text-align: center;
   color: white;
   font-size: 25px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.choices-outcome {
+  padding-top: 20px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
