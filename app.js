@@ -69,11 +69,11 @@ function lose(subZeroSelection, goroSelection) {
 
 //In the event of a tie
 
-function friendship() {
+function friendship(subZeroSelection, goroSelection) {
   friendPlay();
   outcome_p.innerHTML = "Its a tie. Friendship.";
-  player_choice.innerHTML = "I want to be your friend.";
-  computer_choice.innerHTML = "";
+  player_choice.innerHTML = subZeroSelection + " " + "="
+  computer_choice.innerHTML = goroSelection;
 
 }
 
