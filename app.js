@@ -27,6 +27,11 @@ function introPlay() {
   audio.play();
 }
 
+function flawlessPlay() {
+  let audio = new Audio("./sfx/flawless.wav");
+  audio.play();
+}
+
 function subPlay() {
   let audio = new Audio("./sfx/subzero.wav");
   audio.play();
@@ -42,17 +47,23 @@ function friendPlay() {
   audio.play();
 }
 
-//When player(subzero) wins
-
-function win(subZeroSelection, goroSelection) {
-  subZeroScore++;
-  subPlay();
+//Utilities to add inner HTMLs
+//Subzero inner
+function addSubZeroInner(subZeroSelection, goroSelection) {
   subZeroScore_span.innerHTML = subZeroScore;
   goroScore_span.innerHTML = goroScore;
   outcome_p.innerHTML = "Subzero wins";
   player_choice.innerHTML = subZeroSelection + " " + "defeats";
   computer_choice.innerHTML = goroSelection;
+}
 
+//When player(subzero) wins
+
+function win(subZeroSelection, goroSelection) {
+  subZeroScore++;
+  // If subzero wins while Goro's score is still 0 then we get flawless victory
+  goroScore_span.innerHTML === "0" ? flawlessPlay() : subPlay();
+  addSubZeroInner(subZeroSelection, goroSelection);
 }
 
 //when player (subzero) loses
@@ -74,7 +85,6 @@ function friendship(subZeroSelection, goroSelection) {
   outcome_p.innerHTML = "Its a tie. Friendship.";
   player_choice.innerHTML = subZeroSelection + " " + "="
   computer_choice.innerHTML = goroSelection;
-
 }
 
 //the players selection + goro selection + outcome logic
