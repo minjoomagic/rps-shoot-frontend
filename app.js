@@ -12,6 +12,10 @@ const rock_div = document.querySelector("#rock");
 const paper_div = document.querySelector("#paper");
 const scissor_div = document.querySelector("#scissor");
 
+const finishHim_h1 = document.querySelector(".finish-him > h1");
+const fatality_img = document.querySelector("#fatality > img")
+
+
 //This randomizes the computer (goro's) selection
 
 function getGoroSelection() {
@@ -32,6 +36,11 @@ function flawlessPlay() {
   audio.play();
 }
 
+function finishPlay() {
+  let audio = new Audio("./sfx/finish-him.wav");
+  audio.play();
+}
+
 function subPlay() {
   let audio = new Audio("./sfx/subzero.wav");
   audio.play();
@@ -48,14 +57,35 @@ function friendPlay() {
 }
 
 //Utilities to add inner HTMLs
+// make score from text into integer 
+function convertScore() {
+  goroScore_span.innerHTML = parseInt(goroScore_span.innerHTML)
+  console.log("current scorre is" + goroScore_span.innerHTML)
+}
+
+//Finish Him
+function finishHim() {
+  finishPlay();
+  finishHim_h1.innerHTML = "FINISH HIM!!"
+  fatality_img.src = "./Images/subzero1loop.gif"
+  window.setTimeout(function () { showFatality(); }, 100)
+}
+// autoscrolls to the bottom of page when fatality activated
+function showFatality() {
+  document.getElementById("bottom").scrollIntoView();
+}
+
+
 //Subzero inner
 function addSubZeroInner(subZeroSelection, goroSelection) {
   subZeroScore_span.innerHTML = subZeroScore;
   goroScore_span.innerHTML = goroScore;
   goroScore_span.innerHTML === "0" ? outcome_p.innerHTML = "Flawless Victory" : outcome_p.innerHTML = "Subzero wins";;
+  subZeroScore_span.innerHTML === "3" ? finishHim() : outcome_p.innerHTML = "SubZero wins";
   player_choice.innerHTML = subZeroSelection + " " + "defeats";
   computer_choice.innerHTML = goroSelection;
 }
+
 
 //When player(subzero) wins
 
@@ -110,7 +140,7 @@ function game(subZeroSelection) {
   }
 }
 
-game();
+
 
 //player selection event listeners
 

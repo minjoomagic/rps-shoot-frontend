@@ -157,3 +157,17 @@ header > h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
+
+.finish-him > h1 {
+  text-align: center;
+  color: red;
+  font-size: 100px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+#fatality img {
+  align-items: center;
+  width: 100%;
+
+}
