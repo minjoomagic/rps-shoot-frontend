@@ -169,5 +169,11 @@ header > h1 {
 #fatality img {
   align-items: center;
   width: 100%;
+}
 
+#fatality iframe {
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
