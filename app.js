@@ -14,6 +14,7 @@ const scissor_div = document.querySelector("#scissor");
 
 const finishHim_h1 = document.querySelector(".finish-him > h1");
 const fatality_img = document.querySelector("#fatality > img")
+const fatality_iframe = document.querySelector("#fatality > iframe")
 
 
 //This randomizes the computer (goro's) selection
@@ -68,6 +69,8 @@ function finishHim() {
   finishPlay();
   finishHim_h1.innerHTML = "FINISH HIM!!"
   fatality_img.src = "./Images/subzero1loop.gif"
+  // fatality_iframe.src = "./Images/subzerofatality-clip.mp4"
+
   window.setTimeout(function () { showFatality(); }, 100)
 }
 // autoscrolls to the bottom of page when fatality activated
@@ -81,7 +84,7 @@ function addSubZeroInner(subZeroSelection, goroSelection) {
   subZeroScore_span.innerHTML = subZeroScore;
   goroScore_span.innerHTML = goroScore;
   goroScore_span.innerHTML === "0" ? outcome_p.innerHTML = "Flawless Victory" : outcome_p.innerHTML = "Subzero wins";;
-  subZeroScore_span.innerHTML === "3" ? finishHim() : outcome_p.innerHTML = "SubZero wins";
+  subZeroScore_span.innerHTML === "5" ? finishHim() : outcome_p.innerHTML = "SubZero wins";
   player_choice.innerHTML = subZeroSelection + " " + "defeats";
   computer_choice.innerHTML = goroSelection;
 }
@@ -139,8 +142,6 @@ function game(subZeroSelection) {
       break;
   }
 }
-
-
 
 //player selection event listeners
 
